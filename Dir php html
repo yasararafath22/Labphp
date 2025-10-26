@@ -1,0 +1,24 @@
+Dir.html
+<html>
+<body>
+<form action="dir.php" method="POST">
+<h2 align="center">CREATE NEW FOLDER</h2>
+<table align="center" border="1">
+<tr><td>DIRECTORY NAME</td><td><input type="text" 
+name="createfolder"></td></tr>
+<tr><td align="right"><input type="submit" value="READ" 
+name="re"></td><td>
+<input type="reset" value="RESET"></td></tr>
+</table></form>
+</body>
+</html>
+Dir.php
+<?php
+$folder_name=$_POST['createfolder'];
+if(!file_exists($folder_name))/*Check folder exists or not*/
+{
+@mkdir($output_dir . $folder_name,0777);/*Create folder by using mkdir 
+function*/
+echo"Folder created";/*Success Message*/
+}
+?>
