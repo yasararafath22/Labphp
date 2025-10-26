@@ -1,0 +1,62 @@
+Mark.html
+<html>
+<body bgcolor="cyan">
+<h1><center>STUDENT MARK SHEET</h1>
+<form action="mark.php" method="POST">
+<table align="center" border="5" width="500">
+<tr>
+ <td><b>NAME</td><td><input type="text" name="name"></td>
+</tr>
+<tr>
+ <td><b>REGISTER NUMBER</td><td><input type="text" 
+name="rno"></td>
+</tr>
+<tr>
+ <td><b>MARK 1</td><td><input type="text" name="m1"></td>
+</tr>
+<tr>
+ <td><b>MARK 2</td><td><input type="text" name="m2"></td>
+</tr>
+<tr>
+ <td><b>MARK 3</td><td><input type="text" name="m3"></td>
+</tr>
+<tr>
+ <td><b>MARK 4</td><td><input type="text" name="m4"></td>
+</tr>
+<tr>
+ <td></td><td><input type="submit" name="submit" value="OK">
+ <input type="submit" name="submit" value="SUBMIT"></td>
+</tr>
+</table>
+</form> </body> </html>
+
+Mark.php
+<?php
+$a=$_POST['name'];
+$b=$_POST['rno'];
+$m1=$_POST['m1'];
+$m2=$_POST['m2'];
+$m3=$_POST['m3'];
+$m4=$_POST['m4'];
+$total=($m1+$m2+$m3+$m4);
+$per=($total/5);
+$res=($m1>=40&&$m2>=40&&$m3>=40&&$m4>=40)?"PASS":"FAIL"
+;
+echo"<table align=center border=2>
+<tr><td><font color=red>NAME</font></td>
+<td>$a</td>
+</tr>
+<tr><td><font color=red>REGISTER NUMBER</font></td>
+<td>$b</td>
+</tr>
+<tr><td><font color=red>TOTAL</font></td>
+<td>$total</td>
+</tr>
+<tr><td><font color=red>PERCENTAGE</font></td>
+<td>$per</td>
+</tr>
+<tr><td><font color=red>RESULT</font></td>
+<td><font color=blue>$res</td>
+</tr>
+</table>";
+?>
